@@ -10,22 +10,31 @@
 
 function findLongestWord(string){
   var arrayString = string.split(" ");
-  var result=0;
-  var position;
+  var result="";
   
-
   for (var i = 0; i < arrayString.length; i++){
-    var currentValue = arrayString[i];
+    var currentValue = removePuntuation(arrayString[i]);
 
-    if (currentValue.length > result){
-      result = currentValue.length;
-      position = i;
+    if (currentValue.length > result.length){
+      result = currentValue;
     }
   }
-  return arrayString[position];
+  console.log(result);
+  return result;
 }
 
+function removePuntuation(word){
+    //Don´t => Dont
+    var clean = "";
+    for (var i = 0; i < word.length; i++){
+      var current = word[i];
 
+      if(current !== "'"){
+        clean += current;
+      }
+    }    
+    return clean;
+}
 
 
 
